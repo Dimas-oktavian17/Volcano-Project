@@ -75,19 +75,42 @@ function lower(string) {
 //   );
 // }
 // getMountain();
-async function getMountain() {
-  try {
-    const res = await fetch(
-      `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=stratovulkan`
-    );
-    const data = await res.json();
-    data.map((element) => {
-      console.table(element);
-      const list = document.getElementById("list1");
-      list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
-    });
-  } catch (error) {
-    console.error(error);
+// async function getMountain() {
+//   try {
+//     const res = await fetch(
+//       `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=stratovulkan`
+//     );
+//     const data = await res.json();
+//     data.map((element) => {
+//       console.table(element);
+//       const list = document.getElementById("list1");
+//       list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// getMountain();
+// hamburger & active toggle
+let hamburger = document.querySelector("#hamburger");
+let menu = document.getElementById("mobile-menu-3");
+let link = document.querySelectorAll(".link");
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("hidden");
+});
+menu.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+  hamburger.classList.toggle("active");
+});
+// navbar
+
+let fixed = document.querySelector(".fixed");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    fixed.classList.add("shadow-lg");
+  } else {
+    fixed.classList.remove("shadow-lg");
   }
-}
-getMountain();
+});
