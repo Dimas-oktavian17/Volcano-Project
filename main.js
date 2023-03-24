@@ -1,96 +1,70 @@
-import { data } from "autoprefixer";
-import "./src/style.css";
-// import javascriptLogo from "./javascript.svg";
-// import viteLogo from "/vite.svg";
-// import { setupCounter } from "./counter.js";
+// import { data } from "autoprefixer";
+// import "./src/style.css";
 
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <a href="https://vitejs.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
-
-// setupCounter(document.querySelector("#counter"));
-// get search bar
-// document.getElementById("search").addEventListener("click", getMountain);
+// get data element
+const search = document.getElementById("searchInput");
+const searchType = document.getElementById("searchType");
+const result = document.getElementById("result");
+let mountainData = [];
 // convert to lower case string
 function lower(string) {
   return string.toLowerCase();
 }
+// init
+const loadData = async () => {
+  try {
+    const url = await fetch(
+      "https://indonesia-public-static-api.vercel.app/api/volcanoes"
+    );
+    mountainData = await url.json();
+    console.log(mountainData);
+    loadMountainData(mountainData);
+  } catch (error) {
+    console.error(error);
+  }
+};
+const loadMountainData = (data) => {
+  const output = data
+    .map((element) => {
+      return `
+      <div class="w-full px-6 py-4 my-20 bg-white rounded-lg shadow-lg">
+      <div>
+               <h2 class="text-3xl font-semibold text-gray-800">${element.nama}</h2>
+               <p class="mt-2 text-gray-600">
+               ${element.bentuk}
+               </p>
+             </div>
+             <div class="flex justify-end mt-4">
+             <a href="#" class="text-xl font-medium text-indigo-500">
+             ${element.tinggi_meter}
+               </a>
+               </div>
+               </div>
+               `;
+    })
+    .join("");
+  result.innerHTML = output;
+};
+search.addEventListener("keyup", (e) => {
+  const value = e.target.value.toLowerCase();
+  const input = mountainData.filter((data) => {
+    return data.nama.toLowerCase().includes(value);
+    // return data.bentuk.toLowerCase().includes(value);
+  });
 
-// function getMountain() {
-//   const url1 = `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=stratovulkan`;
-//   const url2 = `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=kaldera`;
-//   const url3 = `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=kompleks`;
-//   //  stratovulkan
-//   fetch(url1).then((response) =>
-//     response
-//       .json()
-//       .then((data) => {
-//         const list = document.getElementById("list1");
-//         data.forEach((element) => {
-//           console.log(element);
-//           list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
-//         });
-//       })
-//       .catch((err) => console.error(err))
-//   );
-//   //   kaldera
-//   fetch(url2).then((response) =>
-//     response
-//       .json()
-//       .then((data) => {
-//         const list = document.getElementById("list2");
-//         data.forEach((element) => {
-//           console.log(element);
-//           list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
-//         });
-//       })
-//       .catch((err) => console.error(err))
-//   );
-//   //   kompleks
-//   fetch(url3).then((response) =>
-//     response
-//       .json()
-//       .then((data) => {
-//         const list = document.getElementById("list3");
-//         data.forEach((element) => {
-//           console.log(element);
-//           list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
-//         });
-//       })
-//       .catch((err) => console.error(err))
-//   );
-// }
-// getMountain();
-// async function getMountain() {
-//   try {
-//     const res = await fetch(
-//       `https://indonesia-public-static-api.vercel.app/api/volcanoes?type=stratovulkan`
-//     );
-//     const data = await res.json();
-//     data.map((element) => {
-//       console.table(element);
-//       const list = document.getElementById("list1");
-//       list.innerHTML += `<li>Nama:${element.nama} - Bentuk:${element.bentuk} - Tinggi_Meter:${element["tinggi_meter"]} </li>`;
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// getMountain();
+  loadMountainData(input);
+});
+searchType.addEventListener("keyup", (e) => {
+  const value = e.target.value.toLowerCase();
+  const type = mountainData.filter((data) => {
+    // return data.nama.toLowerCase().includes(value);
+    return data.bentuk.toLowerCase().includes(value);
+  });
+
+  loadMountainData(type);
+});
+loadData();
+
 // hamburger & active toggle
 let hamburger = document.querySelector("#hamburger");
 let menu = document.getElementById("mobile-menu-3");
