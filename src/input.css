@@ -9,17 +9,17 @@
 }
 /* hamburger */
 @layer components {
-  .on > div > p:nth-child(1) {
+  .active > div > p:nth-child(1) {
     @apply origin-bottom-left rotate-45;
   }
 }
 @layer components {
-  .on > div > p:nth-child(2) {
+  .active > div > p:nth-child(2) {
     @apply scale-0;
   }
 }
 @layer components {
-  .on > div > p:nth-child(3) {
+  .active > div > p:nth-child(3) {
     @apply -rotate-[45deg] origin-top-left w-[30px];
   }
 }
