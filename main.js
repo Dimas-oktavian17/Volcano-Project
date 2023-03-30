@@ -24,15 +24,14 @@ const loadMountainData = (data) => {
   const output = data
     .map((element) => {
       return `
-       <div class="flex flex-col items-start pb-8 lg:items-center bg-white shadow-lg rounded-xl w-full  swiper-slide
-                                          transition-all duration-500" id="card" data-aos="fade-up">
-                <h1 class=" font-inter font-semibold text-sm tracking-widest text-[#FE5E44] pb-5 pl-8 pt-2 lg:pl-0">
+       <div class="hover:scale-90 flex flex-col items-start pb-8 lg:items-center bg-slate-200 shadow-lg rounded-xl w-full  swiper-slide
+                 transition-all duration-500" id="card" data-aos="fade-up">
+                <h1 class=" font-inter font-semibold text-sm tracking-widest text-slate-900 pb-5 pl-8 pt-2 lg:pl-0">
                   Volcano
                 </h1>
                 <h2 class="font-main font-normal text-4xl text-[#0C0E2B] lg:text-center pb-8 pl-8 lg:pl-0">
                   ${element.nama}
                 </h2>
-
                 <!-- List -->
                 <div class="flex flex-col pb-8 pl-8 lg:pl-0">
                   <!-- wraper row lg for list -->
