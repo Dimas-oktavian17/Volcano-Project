@@ -2,7 +2,7 @@ import "./src/style.css";
 
 // get data element
 const search = document.getElementById("searchInput");
-
+const dropdown = document.getElementById("dropValue");
 const result = document.getElementById("result");
 let mountainData = [];
 // convert to lower case string
@@ -16,6 +16,7 @@ const loadData = async () => {
     mountainData = await url.json();
     console.log(mountainData);
     loadMountainData(mountainData);
+    loadMountainFilter(mountainData);
   } catch (error) {
     console.error(error);
   }
@@ -63,7 +64,25 @@ const loadMountainData = (data) => {
     })
     .join("");
   result.innerHTML = output;
+  console.log(output);
 };
+const loadMountainFilter = (data) => {
+  let output = data
+    .map((element) => {
+      return `<option value="${element.bentuk}">${element.bentuk}</option>`;
+    })
+    .join("");
+  console.log(output);
+  dropdown.innerHTML += output;
+};
+
+dropdown.addEventListener("click", (e) => {
+  const value = e.target.value;
+  const input = mountainData.filter((data) => {
+    return data.bentuk.includes(value);
+  });
+  loadMountainFilter(input);
+});
 search.addEventListener("keyup", (e) => {
   const value = e.target.value.toLowerCase();
   const input = mountainData.filter((data) => {
@@ -124,3 +143,5 @@ var swiper = new Swiper(".mySwiper", {
     },
   },
 });
+
+// three js
