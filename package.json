@@ -16,6 +16,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "nice-select2": "^2.1.0",
     "three": "^0.150.1"
   }
 }
