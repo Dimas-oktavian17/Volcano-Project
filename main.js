@@ -1,4 +1,11 @@
 // import { data } from "autoprefixer";
+// niceSelect
+NiceSelect.bind(document.getElementById("a-select"), {
+  searchable: true,
+  placeholder: "select",
+  searchtext: "kaldera",
+  selectedtext: "geselecteerd",
+});
 import "./src/style.css";
 // get data element
 // search
@@ -85,17 +92,33 @@ fetch("https://indonesia-public-static-api.vercel.app/api/volcanoes")
     console.log(data);
     // for search
     document.querySelector("#filter").addEventListener("click", () => {
-      let type = document.querySelector("#type").value;
+      let type = document.querySelector("#a-select").value;
       let min_height = document.querySelector("#min_height");
       let max_height = document.querySelector("#max_height");
       let minVolcano = min_height.value;
       let maxVolcano = max_height.value;
       let filtered_data = data.filter((volcano) => {
-        return (
-          (type == "" || volcano.bentuk == type) &&
-          (minVolcano == "" || parseInt(volcano.tinggi_meter) >= minVolcano) &&
-          (maxVolcano == "" || parseInt(volcano.tinggi_meter) <= maxVolcano)
-        );
+        if (minVolcano <= maxVolcano) {
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          return (
+            (type == "" || volcano.bentuk == type) &&
+            (minVolcano == "" ||
+              parseFloat(volcano.tinggi_meter) >= minVolcano) &&
+            (maxVolcano == "" || parseFloat(volcano.tinggi_meter) <= maxVolcano)
+          );
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Tolong isi sesuai petunjuk ya!",
+            footer: '<a href="#dokumentasi">Bagaiamana agar solved?</a>',
+          });
+        }
       });
       console.log(filtered_data);
       let result = document.querySelector("#result");
@@ -153,16 +176,15 @@ fetch("https://indonesia-public-static-api.vercel.app/api/volcanoes")
   })
   .catch((err) => console.error(err));
 // With search
-
 clear.addEventListener("click", () => {
   const form = document.querySelector("form");
   const result = document.getElementById("result");
+  let type = document.getElementById("a-select");
   setTimeout(() => {
     form.reset();
     result.innerHTML = "";
   }, 500);
 });
-
 // hamburger & active toggle
 let hamburger = document.querySelector("#hamburger");
 let menu = document.getElementById("mobile-menu-3");
@@ -187,31 +209,31 @@ window.addEventListener("scroll", () => {
   }
 });
 // init swipper js
-// var swiper = new Swiper(".mySwiper", {
-//   slidesPerView: 1,
-//   spaceBetween: 10,
-//   grabCursor: true,
-//   loop: true,
-//   loopFillGroupWithBlank: true,
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true,
-//   },
+let swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  grabCursor: true,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
 
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 1,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 1,
-//       spaceBetween: 20,
-//     },
-//     1024: {
-//       slidesPerView: 1,
-//       spaceBetween: 20,
-//     },
-//   },
-// });
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+  },
+});
 
 // three js
