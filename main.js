@@ -1,5 +1,6 @@
 // import { data } from "autoprefixer";
 // niceSelect
+// import NiceSelect from "nice-select2";
 NiceSelect.bind(document.getElementById("a-select"), {
   searchable: true,
   placeholder: "select",
@@ -97,6 +98,7 @@ fetch("https://indonesia-public-static-api.vercel.app/api/volcanoes")
       let max_height = document.querySelector("#max_height");
       let minVolcano = min_height.value;
       let maxVolcano = max_height.value;
+      const form = document.querySelector("form");
       let filtered_data = data.filter((volcano) => {
         if (minVolcano <= maxVolcano) {
           Swal.fire({
@@ -112,6 +114,7 @@ fetch("https://indonesia-public-static-api.vercel.app/api/volcanoes")
             (maxVolcano == "" || parseFloat(volcano.tinggi_meter) <= maxVolcano)
           );
         } else {
+          form.reset();
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -179,7 +182,7 @@ fetch("https://indonesia-public-static-api.vercel.app/api/volcanoes")
 clear.addEventListener("click", () => {
   const form = document.querySelector("form");
   const result = document.getElementById("result");
-  let type = document.getElementById("a-select");
+
   setTimeout(() => {
     form.reset();
     result.innerHTML = "";
