@@ -1,3 +1,98 @@
+// Import JustValidate for form validation
+import JustValidate from "just-validate";
+const validator = new JustValidate("#form", {
+  validateBeforeSubmitting: true,
+});
+// Form validation
+validator
+  // for Search Input
+  // .addField(
+  //   "#searchInput",
+  //   [
+  //     {
+  //       rule: "customRegexp",
+  //       value: /\S^[a-zA-Z]+$/,
+  //       errorMessage: "Must be a valid name",
+  //     },
+  //   ],
+  //   {
+  //     successMessage: "looks good!",
+  //   }
+  // )
+  // for month
+  .addField(
+    "#min_height",
+    [
+      {
+        rule: "required",
+        errorMessage: "This field is required",
+      },
+      {
+        rule: "number",
+        errorMessage: "Must be a valid number",
+      },
+      {
+        rule: "minNumber",
+        value: 0,
+        errorMessage: "Must be a valid min height",
+      },
+      {
+        rule: "maxNumber",
+        value: 3799,
+        errorMessage: "Must be a valid min height",
+      },
+      {
+        rule: "minLength",
+        value: 1,
+        errorMessage: "Must be a valid length number",
+      },
+      {
+        rule: "maxLength",
+        value: 4,
+        errorMessage: "Must be a valid length number",
+      },
+    ],
+    {
+      successMessage: "looks good!",
+    }
+  )
+  // for year
+  .addField(
+    "#max_height",
+    [
+      {
+        rule: "required",
+        errorMessage: "This field is required",
+      },
+      {
+        rule: "number",
+        errorMessage: "Must be a valid number",
+      },
+      {
+        rule: "minNumber",
+        value: 0,
+        errorMessage: "Must be a valid max height",
+      },
+      {
+        rule: "maxNumber",
+        value: 3800,
+        errorMessage: "Must be a valid max height",
+      },
+      {
+        rule: "minLength",
+        value: 1,
+        errorMessage: "Must be a valid length number",
+      },
+      {
+        rule: "maxLength",
+        value: 4,
+        errorMessage: "Must be a valid length number",
+      },
+    ],
+    {
+      successMessage: "looks good!",
+    }
+  );
 // niceSelect
 NiceSelect.bind(document.getElementById("a-select"), {
   searchable: true,
@@ -9,6 +104,7 @@ import "./src/style.css";
 // Get Element HTML
 const search = document.getElementById("searchInput");
 const filter = document.querySelector("#filter");
+const form = document.getElementById("form");
 const clear = document.getElementById("clear");
 let animate = document.querySelector("#animation");
 // Get result Element HTML & Create array data
@@ -36,13 +132,14 @@ async function filterData() {
     );
     const data = await response.json();
     console.log(data);
-    filter.addEventListener("click", () => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
       let type = document.querySelector("#a-select").value;
       let min_height = document.querySelector("#min_height");
       let max_height = document.querySelector("#max_height");
       let minVolcano = min_height.value;
       let maxVolcano = max_height.value;
-      if (minVolcano <= maxVolcano) {
+      if (minVolcano <= maxVolcano && minVolcano !== maxVolcano) {
         Swal.fire({
           icon: "success",
           title: "Berhasil",
