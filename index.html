@@ -8,11 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volcano-Project</title>
   <!-- link css,js or library -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-
-  <script src="./src/swipper.js" defer></script>
-
+  <!-- JS -->
   <script type="module" src="./main.js" defer></script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="./src/style.css" />
   <link rel="stylesheet" href="./src/swipper.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -183,13 +182,15 @@
         <!-- search box & filter -->
         <div class="flex flex-row items-center justify-center">
           <div class="flex flex-col-reverse lg:flex-row items-center justify-center">
-            <div class="flex flex-col lg:w-1/2 max-w-xs">
-              <form class="bg-white p-10 rounded-2xl flex flex-col justify-center items-center">
-                <label for="nama" class="flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
-                  Cari berdasarkan nama gunung
-                </label>
-                <input id="searchInput" placeholder="merapi" type="text"
-                  class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900" />
+            <div class="flex flex-col max-w-xs">
+              <form id="form" class="bg-white p-10 rounded-2xl flex flex-col justify-center items-center">
+                <div class="">
+                  <label for="nama" class="flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                    Cari berdasarkan nama gunung
+                  </label>
+                  <input name="nama" id="searchInput" placeholder="merapi" type="text"
+                    class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900" />
+                </div>
                 <label for="a-select"
                   class="py-4 flex flex-col items-center leading-[15px] font-medium text-xs  text-blue-500">
                   Filter data as type volcano:
@@ -219,7 +220,7 @@
                       class=" flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
                       min_height:
                     </label>
-                    <input type="number" id="min_height" min="0" max="3800" placeholder="0"
+                    <input name="min_height" type="number" id="min_height" min="0" max="3800" placeholder="0"
                       class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
                   </div>
                   <div class="flex flex-col lg:w-1/2 lg:pr-4">
@@ -229,14 +230,14 @@
                       max_height:
                     </label>
                     <!-- Max height -->
-                    <input type="number" id="max_height" min="0" max="3800" placeholder="3800"
+                    <input name="max_height" type="number" id="max_height" min="0" max="3800" placeholder="3800"
                       class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
                   </div>
                 </div>
                 <!-- button -->
                 <div class="flex flex-row justify-between items-center pt-4">
                   <div class="w-1/2 pr-1">
-                    <button id="filter"
+                    <button type="submit" id="filter"
                       class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-slate-900 hover:text-white  gap-[15px] border border-slate-900 rounded bg-transparent">
                       Filter
                     </button>
@@ -251,48 +252,7 @@
               </form>
             </div>
             <!-- Dokumentasi -->
-            <div id="dokumentasi" class="scroll-mt-8 w-full pb-8 lg:pb-0 flex flex-col lg:w-1/2 lg:pl-8">
-              <h1 class="pl-2 lg:pl-0 text-slate-700 font-black leading-none  text-left text-2xl font-main">
-                Dokumentasi Pengunaan
-              </h1>
-              <p class="  pl-2 lg:pl-0 py-4 text-lg font-normal text-left font-header text-slate-500 lg:pr-20">
-                Harap <span class="text-blue-700 font-semibold">wajib </span>membaca dokumentasi dengan sesama agar
-                lebih paham cara
-                menggunakannya:)
-              </p>
-              <!-- ul -->
-              <ul class="lg:pl-8 list-disc text-left pl-2">
-                <li class="text-xl text-slate-700 font-semibold">Search Volcano</li>
-                <p class="pr-4 lg:pr-0 text-base font-normal  lg:text-left font-header text-slate-500 ">
-                  Jika anda ingin menggunakan fitur pencariaan, maka tinggal masukan input berdasarkan nama volcano yang
-                  anda ingin cari.
-                </p>
-                <li class="text-xl text-slate-700 font-semibold">Type Volcano</li>
-                <p class="pr-4 lg:pr-0 text-base font-normal  lg:text-left font-header text-slate-500 ">
-                  Jika anda ingin menggunakan fitur pencariaan berdasarkan type volcano, maka tinggal pilih type volcano
-                  yang anda ingin melalui dropdown dan jangan lupa <span class="text-blue-700 font-semibold">klik tombol
-                    filter.</span>
-                </p>
-                <li class="text-xl text-slate-700 font-semibold">Height</li>
-                <p class="pr-4 lg:pr-0 text-base font-normal  lg:text-left font-header text-slate-500 ">
-                  Kami menyediakan fitur pencarian berdasarkan <span class="text-blue-700 font-semibold">min_height
-                  </span> && <span class="text-blue-700 font-semibold">max_height</span>, pastikan kedua input tersebut
-                  memiliki value yang sesuai & <span class="text-blue-700 font-semibold">opsional </span>diisi.
-                  <br>
-                  Example: min_height: 0 && max_height: 3800.
-                </p>
-                <li class="text-xl text-slate-700 font-semibold">Filter Button</li>
-                <p class="pr-4 lg:pr-0 text-base font-normal  lg:text-left font-header text-slate-500">
-                  Jika anda ingin mendapatkan data volcano berdasarkan kriteria yang anda masukan tadi, maka<span
-                    class="text-blue-700 font-semibold"> wajib </span>untuk menekan button filter.
-                </p>
-                <li class="text-xl text-slate-700 font-semibold">Clear Button</li>
-                <p class="pr-4 lg:pr-0 text-base font-normal  lg:text-left font-header text-slate-500">
-                  Fitur button clear berfungsi untuk menghapus semua data dari hasil pencarian & juga data dari form
-                  yang kamu inputkan.
-                </p>
-              </ul>
-            </div>
+
           </div>
         </div>
         <!-- picture -->
@@ -382,6 +342,8 @@
     </section>
 
   </main>
+  <!-- Js  -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="node_modules/nice-select2/dist/js/nice-select2.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
