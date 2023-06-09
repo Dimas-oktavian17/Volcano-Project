@@ -101,6 +101,7 @@ NiceSelect.bind(document.getElementById("a-select"), {
   selectedtext: "geselecteerd",
 });
 import "./src/style.css";
+import errorSvg from "./public/error.svg";
 // Get Element HTML
 const search = document.getElementById("searchInput");
 const filter = document.querySelector("#filter");
@@ -214,9 +215,12 @@ async function filterData() {
 }
 // manipulate for search result
 const loadMountainData = (data) => {
-  const output = data
-    .map(({ nama, bentuk, tinggi_meter: tinggi } = volcano) => {
-      return `
+  const output =
+    data != data || data == "" || data == null
+      ? `<img src="${errorSvg}" class="max-w-xs  "  alt="error">`
+      : data
+          .map(({ nama, bentuk, tinggi_meter: tinggi } = volcano) => {
+            return `
        <div class="hover:scale-90 flex flex-col items-start pb-8 lg:items-center bg-slate-200 shadow-lg rounded-xl w-full  swiper-slide
                  transition-all duration-500" id="card" data-aos="fade-up">
                 <h1 class=" font-inter font-semibold text-sm tracking-widest text-slate-900 pb-5 pl-8 pt-2 lg:pl-0">
@@ -253,16 +257,17 @@ const loadMountainData = (data) => {
                 </div>
               </div>
                `;
-    })
-    .join("");
+          })
+          .join("");
+
   result.innerHTML = output;
 };
 // create event for search
 search.addEventListener("keyup", (e) => {
   const value = e.target.value.toLowerCase();
-  const input = mountainData.filter((item) => {
-    return item.nama.toLowerCase().includes(value);
-  });
+  const input = mountainData.filter((item) =>
+    item.nama.toLowerCase().includes(value)
+  );
   loadMountainData(input);
 });
 // call asnyc function
@@ -272,11 +277,14 @@ filterData();
 clear.addEventListener("click", () => {
   const form = document.querySelector("form");
   const result = document.getElementById("result");
-  let type = document.getElementById("a-select");
-  setTimeout(() => {
-    form.reset();
-    result.innerHTML = "";
-  }, 500);
+  setTimeout(
+    () => {
+      form.reset();
+      result.innerHTML = "";
+    },
+
+    500
+  );
 });
 // Get Element HTML for hamburge & menu
 let hamburger = document.querySelector("#hamburger");
