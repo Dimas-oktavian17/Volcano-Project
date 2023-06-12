@@ -334,3 +334,7 @@ let swiper = new Swiper(".mySwiper", {
     },
   },
 });
+// darkmode toggle
+document.querySelector("#mode").addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+});
