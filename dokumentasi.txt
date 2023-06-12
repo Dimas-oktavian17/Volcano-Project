@@ -40,3 +40,73 @@
                 </p>
               </ul>
             </div>
+
+
+            //form
+              <form id="form" class="bg-white p-10 h-auto rounded-2xl flex flex-col justify-center items-center">
+                <div class="">
+                  <label for="nama" class="flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                    Cari berdasarkan nama gunung
+                  </label>
+                  <input name="nama" id="searchInput" placeholder="merapi" type="text"
+                    class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900" />
+                </div>
+                <label for="a-select"
+                  class="py-4 flex flex-col items-center leading-[15px] font-medium text-xs  text-blue-500">
+                  Filter data as type volcano:
+                  <select class=" px-24 mt-2" id="a-select">
+                    <option value="" class="px-20" data-display="Select">All</option>
+                    <option value="bawah laut">bawah laut</option>
+                    <option value="enum">enum</option>
+                    <option value="fumarol">fumarol</option>
+                    <option value="kaldera">kaldera</option>
+                    <!-- first option -->
+                    <!-- mid option -->
+                    <option value="kerucut">kerucut</option>
+                    <option value="kerucut bara">kerucut bara</option>
+                    <option value="kompleks">kompleks</option>
+                    <option value="kubah lava">kubah lava</option>
+                    <!-- End option -->
+                    <option value="maar">maar</option>
+                    <option value="perisai">perisai</option>
+                    <option value="stratovulkan">stratovulkan</option>
+                    <option value="supervulkan">supervulkan</option>
+                  </select>
+                </label>
+                <!-- height -->
+                <div class="flex flex-row justify-between items-center pt-4">
+                  <div class="flex flex-col lg:w-1/2 lg:pr-4">
+                    <label for="min_height"
+                      class=" flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                      min_height:
+                    </label>
+                    <input name="min_height" type="number" id="min_height" min="0" max="3800" placeholder="0"
+                      class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
+                  </div>
+                  <div class="flex flex-col lg:w-1/2 lg:pr-4">
+                    <!-- Max height -->
+                    <label for="max_height"
+                      class=" flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                      max_height:
+                    </label>
+                    <!-- Max height -->
+                    <input name="max_height" type="number" id="max_height" min="0" max="3800" placeholder="3800"
+                      class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
+                  </div>
+                </div>
+                <!-- button -->
+                <div class="flex flex-row justify-between items-center pt-4">
+                  <div class="w-1/2 pr-1">
+                    <button type="submit" id="filter"
+                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-slate-900 hover:text-white  gap-[15px] border border-slate-900 rounded bg-transparent">
+                      Filter
+                    </button>
+                  </div>
+                  <div class="w-1/2 pl-1">
+                    <button id="clear"
+                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-rose-900 hover:text-white  gap-[15px] border border-rose-900 rounded bg-transparent">
+                      Clear
+                    </button>
+                  </div>
+                </div>
+              </form>
