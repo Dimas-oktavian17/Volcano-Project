@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth dark">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,11 +10,13 @@
   <!-- link css,js or library -->
   <!-- JS -->
   <script type="module" src="./main.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" href="./src/style.css" />
   <link rel="stylesheet" href="./src/swipper.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="node_modules/nice-select2/dist/css/nice-select2.css" />
   <!-- font family -->
   <!-- sourcecode sans pro -->
@@ -27,21 +29,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet" />
 </head>
 
-<body class="bg-gradient-to-r dark:from-black dark:to-slate-700 from-slate-50 to-slate-300">
+<body class="dark:from-[#181818] dark:to-[#181818] bg-gradient-to-r from-slate-50 to-slate-300">
   <!-- header -->
   <header class="container hidden-me" id="beranda">
     <nav class="px-2 mb-10 border-gray-200 font-header" id="nav">
       <div
         class="fixed container backdrop-blur-md w-[95%] z-[999] mx-auto flex flex-wrap items-center justify-between rounded-xl lg:w-[98%]">
         <a href="#beranda" class="flex transition-all duration-500 group">
-          <svg class="h-10 mr-3 transition-all duration-500 fill-slate-700 group-hover:fill-slate-500" width="51"
-            height="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <svg class="dark:hidden h-10 mr-3 transition-all duration-500 fill-slate-700 group-hover:fill-slate-500"
+            width="51" height="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
               d="M160 144c-35.3 0-64-28.7-64-64s28.7-64 64-64c15.7 0 30 5.6 41.2 15C212.4 12.4 232.7 0 256 0s43.6 12.4 54.8 31C322 21.6 336.3 16 352 16c35.3 0 64 28.7 64 64s-28.7 64-64 64c-14.7 0-28.3-5-39.1-13.3l-32 48C275.3 187 266 192 256 192s-19.3-5-24.9-13.3l-32-48C188.3 139 174.7 144 160 144zM144 352l48.4-24.2c10.2-5.1 21.6-7.8 33-7.8c19.6 0 38.4 7.8 52.2 21.6l32.5 32.5c6.3 6.3 14.9 9.9 23.8 9.9c11.3 0 21.8-5.6 28-15l9.7-14.6-59-66.3c-9.1-10.2-22.2-16.1-35.9-16.1H235.1c-13.7 0-26.8 5.9-35.9 16.1l-59.9 67.4L144 352zm19.4-95.8c18.2-20.5 44.3-32.2 71.8-32.2h41.8c27.4 0 53.5 11.7 71.8 32.2l150.2 169c8.5 9.5 13.2 21.9 13.2 34.7c0 28.8-23.4 52.2-52.2 52.2H52.2C23.4 512 0 488.6 0 459.8c0-12.8 4.7-25.1 13.2-34.7l150.2-169z" />
           </svg>
           <span
-            class="self-center text-lg font-semibold transition-all duration-500 font-header whitespace-nowrap text-slate-900 group-hover:text-slate-500">
+            class="dark:text-white self-center text-lg font-semibold transition-all duration-500 font-header whitespace-nowrap text-slate-900 group-hover:text-slate-500">
             Volcano
           </span>
         </a>
@@ -49,9 +51,10 @@
           <div class="relative hidden mr-3 md:mr-0 md:block">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
             <a href="#search"
-              class="flex flex-row items-center justify-center gap-4 px-4 py-2 text-lg font-semibold transition-all duration-500 bg-transparent rounded-full font-header group">
+              class="flex dark:text-[#ffffffcc] flex-row items-center justify-center gap-4 px-4 py-2 text-lg font-semibold transition-all duration-500 bg-transparent rounded-full font-header group">
               Get Started
-              <svg width="20" height="21" class="inline-block transition-all duration-500 group-hover:ml-2"
+              <svg width="20" height="21"
+                class="dark:fill-[#ffffffcc] inline-block transition-all duration-500 group-hover:ml-2"
                 viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9.99999 19.2707C14.6024 19.2707 18.3333 15.5397 18.3333 10.9373C18.3333 6.33497 14.6024 2.60401 9.99999 2.60401C5.39762 2.60401 1.66666 6.33497 1.66666 10.9373C1.66666 15.5397 5.39762 19.2707 9.99999 19.2707Z"
@@ -85,13 +88,13 @@
           <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
               <a href="#beranda"
-                class="block py-2 pl-3 pr-4 text-base font-semibold text-black rounded font-header md:bg-transparent md:text-primary md:p-0"
+                class="dark:text-white font-medium block py-2 pl-3 pr-4 text-base text-black rounded font-header md:bg-transparent md:text-primary md:p-0"
                 aria-current="page">Beranda</a>
             </li>
 
             <li>
               <a href="#about"
-                class="block py-2 pl-3 pr-4 text-base font-normal text-gray-700 border-b border-gray-100 link font-header hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:lg:hover:bg-transparent dark:hover:bg-slate-600 dark:text-primary2hover dark:hover:text-slate-50 dark:border-slate-600">
+                class="block py-2 pl-3 pr-4 text-base font-normal text-gray-700 dark:text-[#ffffffcc] border-b border-gray-100 link font-header hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:lg:hover:bg-transparent dark:hover:bg-slate-600 dark:hover:text-slate-50 dark:border-slate-600">
                 About
               </a>
             </li>
@@ -99,7 +102,8 @@
               <button type="button" id="mode"
                 class="block py-2 pl-3 pr-4 text-base font-normal text-gray-700 border-b border-gray-100 link font-header hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:lg:hover:bg-transparent dark:hover:bg-slate-600 dark:text-primary2hover dark:hover:text-slate-50 dark:border-slate-600">
                 <!-- moon -->
-                <svg class="w-8 h-8 hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <svg class="dark:text-[#ffffffcc] fill-white w-8 h-8 hidden dark:block"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path
                     d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" />
                 </svg>
@@ -115,14 +119,13 @@
                 <!--
                 Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
                 License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
-                -->
-              </button>
+                --></button>
             </li>
             <br />
             <li class="lg:hidden">
               <a href="#search">
                 <button type="button"
-                  class="w-full font-header text-white font-semibold text-lg shadow-sm bg-slate-500 hover:bg-slate-400 transition-all duration-1000  rounded-lg px-5 py-2.5 mr-2 mb-2">
+                  class="dark:text-[#ffffffcc] w-full font-header text-white font-semibold text-lg shadow-sm bg-slate-500 hover:bg-slate-400 transition-all duration-1000 rounded-lg px-5 py-2.5 mr-2 mb-2">
                   Get Started
                 </button>
               </a>
@@ -140,26 +143,67 @@
         <!-- hero deskripsi -->
         <div class="flex flex-col items-start lg:w-1/2">
           <h1
-            class="font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
-            Volcano Indonesia
+            class="dark:from-white dark:to-white dark:font-light font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
+            Volcano <span class="font-bold">Indonesia</span>
           </h1>
-          <p class="py-4 text-lg font-normal text-center lg:text-left font-header text-slate-400">
-            Dapatkan informasi mengenai bermacam" gunung berapi di Indonesia.
+          <p class="py-4 text-lg font-normal text-center lg:text-left font-header text-slate-400 dark:text-[#ffffff99]">
+            Merupakan sebuah website yang berisi informasi terkait Gunung
+            Berapi di Indonesia.
           </p>
-          <div class="flex flex-row self-center py-4 lg:py-0 lg:self-start">
+          <div class="flex flex-row self-center py-[.9375rem] gap-5 lg:py-0 lg:self-start">
             <a href="#search"
-              class="font-header group text-lg font-semibold flex justify-center flex-row items-center hover:bg-gradient-to-r hover:from-slate-500 hover:border-none transition-all duration-500 hover:to-slate-700 hover:text-white py-[15px] px-[45px] gap-[15px] border border-slate-900 rounded-full bg-transparent">
+              class="group transition-all dark:text-white font-semibold text-center dark:bg-transparent border dark:border-[#3A3AF4] dark:hover:bg-[#3A3AF4] rounded-[.1875rem] py-[.9375rem] px-[1.875rem]">
               Get Started
-              <svg width="20" height="21" class="inline-block transition-all duration-500 group-hover:ml-2"
-                viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.99999 19.2707C14.6024 19.2707 18.3333 15.5397 18.3333 10.9373C18.3333 6.33497 14.6024 2.60401 9.99999 2.60401C5.39762 2.60401 1.66666 6.33497 1.66666 10.9373C1.66666 15.5397 5.39762 19.2707 9.99999 19.2707Z"
-                  stroke="#0f172a" class="group-hover:stroke-slate-100" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path d="M10 14.2707L13.3333 10.9373L10 7.60402" class="group-hover:stroke-slate-100" stroke="#0f172a"
-                  stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6.66666 10.9373H13.3333" stroke="#0f172a" stroke-linecap="round"
-                  class="group-hover:stroke-slate-100" stroke-linejoin="round" />
+              <svg class="inline-block bg-transparent transition-all group-hover:ml-2" width="25" height="24"
+                viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="25" height="24" fill="#1E1E1E" />
+                <g id="Desktop - 1" clip-path="url(#clip0_0_1)">
+                  <rect width="1440" height="1515" transform="translate(-764 -498)" fill="#181818" />
+                  <g id="Ellipse 1" filter="url(#filter0_f_0_1)">
+                    <circle cx="-44" cy="430" r="438" fill="url(#paint0_radial_0_1)" />
+                  </g>
+                  <g id="Ellipse 5" opacity="0.5" filter="url(#filter1_f_0_1)">
+                    <circle cx="-44" cy="-749" r="626" fill="url(#paint1_radial_0_1)" />
+                  </g>
+                  <g id="Frame 347">
+                    <g id="Frame 346">
+                      <rect x="-142.5" y="-15" width="197" height="54" rx="3" fill="#3A3AF4" />
+                      <g id="Frame">
+                        <path id="Vector" d="M5.5 12H19.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path id="Vector_2" d="M12.5 5L19.5 12L12.5 19" stroke="white" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <defs>
+                  <filter id="filter0_f_0_1" x="-782" y="-308" width="1476" height="1476" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_0_1" />
+                  </filter>
+                  <filter id="filter1_f_0_1" x="-970" y="-1675" width="1852" height="1852" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_0_1" />
+                  </filter>
+                  <radialGradient id="paint0_radial_0_1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(-44 430) rotate(90) scale(438)">
+                    <stop stop-color="#3A3AF4" />
+                    <stop offset="1" stop-color="#3A3AF4" stop-opacity="0" />
+                  </radialGradient>
+                  <radialGradient id="paint1_radial_0_1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(-44 -749) rotate(90) scale(626)">
+                    <stop stop-color="#3A3AF4" />
+                    <stop offset="1" stop-color="#3A3AF4" stop-opacity="0" />
+                  </radialGradient>
+                  <clipPath id="clip0_0_1">
+                    <rect width="1440" height="1515" fill="white" transform="translate(-764 -498)" />
+                  </clipPath>
+                </defs>
               </svg>
             </a>
           </div>
@@ -175,14 +219,19 @@
         <!-- hero deskripsi -->
         <div class="flex flex-col items-start lg:w-1/2">
           <h1
-            class="font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
-            Volcano Indonesia
+            class="dark:from-white dark:to-white dark:font-light font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
+            Volcano <span class="font-bold">Indonesia</span>
           </h1>
-          <p class="py-4 text-lg font-normal text-center lg:text-left font-header text-slate-400">
-            Merupakan website pencarian gunung berapi yang ada di Indonesia, website ini dibuat menggunakan bantuan
+          <p class="subtitle-dark py-4 text-lg font-normal text-center lg:text-left font-header text-slate-400">
+            Merupakan website pencarian gunung berapi yang ada di Indonesia,
+            website ini dibuat menggunakan bantuan
             <a href="https://indonesia-public-static-api.vercel.app/api/volcanoes"
-              class="font-bold font-main text-slate-600">API</a> dari <a href="https://github.com/yogski"
-              class="font-bold font-main text-slate-600">Yogi Saputro</a>
+              class="font-bold font-main text-slate-600 dark:text-white">
+              API
+            </a>
+            dari
+            <a href="https://github.com/yogski" class="font-bold font-main text-slate-600 dark:text-white">Yogi
+              Saputro</a>
           </p>
         </div>
         <!-- picture -->
@@ -191,16 +240,15 @@
         </div>
       </div>
       <!-- search & filter -->
-      <div id="search" data-aos="fade-up" class="scroll-mt-20 flex flex-col  lg:gap-[30px] pt-32 pb-28">
+      <div id="search" data-aos="fade-up" class="scroll-mt-20 flex flex-col lg:gap-[30px] pt-32 pb-28">
         <!-- hero deskripsi -->
-
         <!-- search box & filter -->
         <div class="flex flex-row items-center justify-center">
           <div class="flex flex-col-reverse lg:flex-row items-center justify-center">
             <div class="flex flex-col w-full lg:w-1/2 items-start">
               <h1
-                class="font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
-                Volcano Indonesia
+                class="dark:from-white dark:to-white dark:font-light font-black leading-none text-center text-transparent lg:text-left text-7xl font-main bg-gradient-to-r from-slate-400 to-slate-900 shadow-slate-500 bg-clip-text">
+                Volcano <span class="font-bold">Indonesia</span>
               </h1>
               <p class="py-4 text-4xl font-normal font-header text-slate-400">
                 Temukan Sekarang
@@ -327,78 +375,78 @@
             </section> -->
             <!-- Dokumentasi -->
             <form id="form"
-              class="w-full lg:w-1/2 bg-transparent border border-slate-400 shadow-lg hover:transition-all hover:shadow-2xl hover:z-[999] p-10 h-auto rounded-2xl flex flex-col justify-center items-center">
+              class="w-full lg:w-1/2 bg-transparent p-10 h-auto rounded-2xl flex flex-col justify-center items-start">
               <div class="flex flex-col w-full lg:w-1/2">
-                <div class="">
-                  <label for="nama" class="flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                <h1 class="dark:text-white text-4xl font-bold text-black pb-4 w-max">Search Now!</h1>
+                <div class="flex items-start flex-col">
+                  <label for="nama"
+                    class="dark:text-[#ffffff99] leading-[15px] font-medium text-base w-max pb-4 text-blue-500">
                     Cari berdasarkan nama gunung
                   </label>
                   <input name="nama" id="searchInput" placeholder="merapi" type="text"
-                    class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900" />
+                    class="px-4 py-2 text-black dark:text-[#ffffff99] transition-all duration-500 bg-transparent border rounded dark:border-[#ffffff99] border-slate-900 outline-1 outline-slate-900" />
                 </div>
                 <label for="a-select"
-                  class="py-4 flex flex-col items-center leading-[15px] font-medium text-xs  text-blue-500">
-                  Filter data as type volcano:
-                  <select class=" px-24 mt-2" id="a-select">
-                    <option value="" class="px-20" data-display="Select">All</option>
-                    <option value="bawah laut">bawah laut</option>
-                    <option value="enum">enum</option>
-                    <option value="fumarol">fumarol</option>
-                    <option value="kaldera">kaldera</option>
+                  class="flex flex-col  leading-[15px] dark:text-[#181818] font-medium text-base w-max py-4 text-blue-500">
+                  <span class="dark:text-[#ffffff99]">Filter data as type volcano:</span>
+                  <select class="px-24 mt-2 dark:bg-transparent" id="a-select">
+                    <option value="" class="px-20 dark:text-[#181818] dark:bg-transparent" data-display="Select">
+                      All
+                    </option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="bawah laut">bawah laut</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="enum">enum</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="fumarol">fumarol</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="kaldera">kaldera</option>
                     <!-- first option -->
                     <!-- mid option -->
-                    <option value="kerucut">kerucut</option>
-                    <option value="kerucut bara">kerucut bara</option>
-                    <option value="kompleks">kompleks</option>
-                    <option value="kubah lava">kubah lava</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="kerucut">kerucut</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="kerucut bara">kerucut bara</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="kompleks">kompleks</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="kubah lava">kubah lava</option>
                     <!-- End option -->
-                    <option value="maar">maar</option>
-                    <option value="perisai">perisai</option>
-                    <option value="stratovulkan">stratovulkan</option>
-                    <option value="supervulkan">supervulkan</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="maar">maar</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="perisai">perisai</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="stratovulkan">stratovulkan</option>
+                    <option class="text-[#181818] px-20 dark:bg-transparent" value="supervulkan">supervulkan</option>
                   </select>
                 </label>
                 <!-- height -->
                 <div class="flex flex-row justify-between items-center pt-4">
                   <div class="flex flex-col lg:w-1/2 lg:pr-4">
                     <label for="min_height"
-                      class=" flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                      class="flex items-center leading-[15px] font-medium text-base dark:text-[#ffffff99] pb-4 text-blue-500">
                       min_height:
                     </label>
                     <input name="min_height" type="number" id="min_height" min="0" max="3800" placeholder="0"
-                      class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
+                      class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded dark:border-[#ffffff99] border-slate-900 outline-1 outline-slate-900" />
                   </div>
                   <div class="flex flex-col lg:w-1/2 lg:pr-4">
                     <!-- Max height -->
                     <label for="max_height"
-                      class=" flex items-center leading-[15px] font-medium text-xs pb-4 text-blue-500">
+                      class="dark:text-[#ffffff99]  flex items-center leading-[15px] font-medium text-base pb-4 text-blue-500">
                       max_height:
                     </label>
                     <!-- Max height -->
                     <input name="max_height" type="number" id="max_height" min="0" max="3800" placeholder="3800"
-                      class="px-4 py-2 text-black transition-all duration-500 bg-transparent border rounded border-slate-900 outline-1 outline-slate-900">
+                      class="dark:border-[#ffffff99] px-4 py-2 text-black transition-all duration-500 bg-transparent border  rounded border-slate-900 outline-1 font-medium outline-slate-900" />
                   </div>
                 </div>
                 <!-- button -->
                 <div class="flex flex-row justify-between items-center pt-4">
                   <div class="w-1/2 pr-1">
                     <button type="submit" id="filter"
-                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-slate-900 hover:text-white  gap-[15px] border border-slate-900 rounded bg-transparent">
+                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-slate-900 hover:text-white gap-[15px] border border-slate-900 rounded bg-transparent">
                       Filter
                     </button>
                   </div>
                   <div class="w-1/2 pl-1">
                     <button id="clear"
-                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-rose-900 hover:text-white  gap-[15px] border border-rose-900 rounded bg-transparent">
+                      class="py-2 px-5 font-header group text-lg font-semibold flex justify-center flex-row items-center hover:border-none transition-all duration-500 hover:bg-rose-900 hover:text-white gap-[15px] border border-rose-900 rounded bg-transparent">
                       Clear
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="w-full lg:w-1/2">
-
-              </div>
-
             </form>
           </div>
         </div>
@@ -408,13 +456,11 @@
           <!-- animate -->
           <div class="py-8 swiper mySwiper">
             <div id="animation"
-              class="hidden animate-bounce rounded-full h-20 w-20 bg-slate-600 shadow-xl shadow-slate-400 ">
-            </div>
+              class="hidden animate-bounce rounded-full h-20 w-20 bg-slate-600 shadow-xl shadow-slate-400"></div>
             <!-- wrapper -->
             <div class="flex flex-row swiper-wrapper justify-between max-w-xs md:max-w-sm lg:max-w-4xl xl:max-w-5xl"
               id="result">
               <!-- card -->
-
             </div>
             <!-- <div class="swiper-pagination text-[#FE5E4433] opacity-20"></div> -->
           </div>
@@ -426,57 +472,58 @@
           <div class="flex flex-col items-start gap-5 lg:w-[27rem] lg:gap-2">
             <div class="flex flex-row items-center gap-[10px]">
               <a href="#beranda" class="flex transition-all duration-500 group">
-                <svg class="h-10 mr-3 transition-all duration-500 fill-slate-700 group-hover:fill-slate-500" width="51"
-                  height="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <svg
+                  class="h-10 mr-3 transition-all duration-500 fill-slate-700 dark:fill-white dark:group-hover:fill-white/95 group-hover:fill-slate-500"
+                  width="51" height="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                   <path
                     d="M160 144c-35.3 0-64-28.7-64-64s28.7-64 64-64c15.7 0 30 5.6 41.2 15C212.4 12.4 232.7 0 256 0s43.6 12.4 54.8 31C322 21.6 336.3 16 352 16c35.3 0 64 28.7 64 64s-28.7 64-64 64c-14.7 0-28.3-5-39.1-13.3l-32 48C275.3 187 266 192 256 192s-19.3-5-24.9-13.3l-32-48C188.3 139 174.7 144 160 144zM144 352l48.4-24.2c10.2-5.1 21.6-7.8 33-7.8c19.6 0 38.4 7.8 52.2 21.6l32.5 32.5c6.3 6.3 14.9 9.9 23.8 9.9c11.3 0 21.8-5.6 28-15l9.7-14.6-59-66.3c-9.1-10.2-22.2-16.1-35.9-16.1H235.1c-13.7 0-26.8 5.9-35.9 16.1l-59.9 67.4L144 352zm19.4-95.8c18.2-20.5 44.3-32.2 71.8-32.2h41.8c27.4 0 53.5 11.7 71.8 32.2l150.2 169c8.5 9.5 13.2 21.9 13.2 34.7c0 28.8-23.4 52.2-52.2 52.2H52.2C23.4 512 0 488.6 0 459.8c0-12.8 4.7-25.1 13.2-34.7l150.2-169z" />
                 </svg>
                 <span
-                  class="self-center text-lg font-semibold transition-all duration-500 font-header whitespace-nowrap text-slate-900 group-hover:text-slate-500">Volcano</span>
+                  class=" dark:text-white dark:group-hover:text-white/95 self-center text-lg font-semibold transition-all duration-500 font-header whitespace-nowrap text-slate-900 group-hover:text-slate-500">Volcano</span>
               </a>
             </div>
-            <p class="order-1 text-base font-normal font-header text-slate-900">
+            <p class="dark:text-[#ffffff99]  order-1 text-base font-normal font-header text-slate-900">
               Sebenernya banyak banget aplikasi chatting yang lebih bagus dari
               ini, maka dari itu lebih baik pake yang lain aja deh ya daripada
               pake aplikasi yang ini.
             </p>
-            <p class="order-2 text-sm font-semibold tracking-widest font-header text-slate-900">
+            <p class="dark:text-[#ffffff99] order-2 text-sm font-semibold tracking-widest font-header text-slate-900">
               COPYRIGHT (C) 2021. DESIGN BY NAUVAL
             </p>
-            <p class="order-2 text-sm font-semibold tracking-widest font-header text-slate-900">
+            <p class="dark:text-[#ffffff99] order-2 text-sm font-semibold tracking-widest font-header text-slate-900">
               COPYRIGHT (C) 2022. CREATE BY DIMAS
             </p>
           </div>
           <div class="flex flex-col items-start flex-grow order-1 gap-4 lg:gap-2">
-            <h1 class="text-lg font-semibold text-slate-900 font-main">
+            <h1 class="dark:text-white text-lg font-semibold text-slate-900 font-main">
               Sitemap
             </h1>
             <div class="flex flex-col items-start gap-[10px] order-1">
               <ul class="flex flex-col gap-4">
-                <li class="text-base font-normal font-header text-slate-900">
+                <li class="dark:text-[#ffffff99] text-base font-normal font-header text-slate-900">
                   <a href="#beranda">Beranda</a>
                 </li>
-                <li class="text-base font-normal font-header text-slate-900">
+                <li class="dark:text-[#ffffff99] text-base font-normal font-header text-slate-900">
                   <a href="#about">About</a>
                 </li>
-
               </ul>
             </div>
           </div>
           <div class="flex flex-col items-start flex-grow order-2 gap-5 lg:gap-2">
-            <h1 class="text-lg font-semibold text-slate-900 font-main">
+            <h1 class="dark:text-white text-lg font-semibold text-slate-900 font-main">
               Tetep Terhubung
             </h1>
-            <p class="self-stretch order-1 text-base font-normal font-header text-slate-900">
+            <p class="dark:text-[#ffffff99] self-stretch order-1 text-base font-normal font-header text-slate-900">
               Lihat kami pansos di sosial media berikut:
             </p>
             <div class="flex flex-row justify-center items-center gap-[10px] order-2">
               <div
-                class="group flex flex-row justify-center items-center p-2 gap-[10px] w-10 h-10 bg-bg-icon rounded-md transition-all duration-1000 cursor-pointer bg-slate-300">
+                class="group flex flex-row justify-center items-center p-2 gap-[10px] w-10 h-10 bg-bg-icon rounded-md transition-all duration-1000 cursor-pointer dark:bg-transparent dark:hover:bg-white bg-slate-300">
                 <a href="https://github.com/Dimas-oktavian17" target="_blank">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    class="transition-all duration-1000 bi bi-github group-hover:fill-white" viewBox="0 0 16 16">
+                    class="transition-all dark:fill-white duration-1000 bi bi-github group-hover:fill-white dark:group-hover:fill-[#181818]"
+                    viewBox="0 0 16 16">
                     <path
                       d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                   </svg>
@@ -487,7 +534,6 @@
         </div>
       </div>
     </section>
-
   </main>
   <!-- Js  -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

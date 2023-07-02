@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+  .title-dark {
+    @apply dark:from-white dark:to-white dark:font-light;
+  }
+  .subtitle-dark {
+    @apply dark:text-[#ffffff99];
+  }
+}
+
+@layer components {
   .container {
     @apply max-w-5xl py-8 mx-auto;
   }
