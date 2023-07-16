@@ -27,7 +27,7 @@
 }
 @layer components {
   .active > div > p:nth-child(2) {
-    @apply scale-0;
+    @apply animate-burger;
   }
 }
 @layer components {

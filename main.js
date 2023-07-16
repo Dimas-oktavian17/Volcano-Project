@@ -163,7 +163,7 @@ async function filterData() {
         let output = filtered_data
           .map((volcano) => {
             return `
-       <div class="dark:hover:bg-[#1f1f25] dark:border dark:border-[#1f1f25] hover:scale-90 flex flex-col items-start pb-8 lg:items-center bg-slate-200 shadow-lg rounded-xl w-full  swiper-slide
+            <div class="dark:hover:bg-[#1f1f25] dark:border dark:border-[#1f1f25] hover:scale-90 flex flex-col items-start pb-8 lg:items-center bg-slate-200 shadow-lg rounded-xl w-full  swiper-slide
                  transition-all duration-500" id="card" data-aos="fade-up">
                 <h1 class="dark:text-white dark:font-light font-inter font-semibold text-sm tracking-widest text-slate-900 pb-5 pl-8 pt-2 lg:pl-0">
                   Volcano
